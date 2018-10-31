@@ -21,7 +21,7 @@ import { MessagesComponent }    from './messages/messages.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-
+    // sdf
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -40,3 +40,4 @@ import { MessagesComponent }    from './messages/messages.component';
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+
