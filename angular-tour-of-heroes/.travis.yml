@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+- stable
+
+# der travis job soll für alle branches, ausser dem gh-pages-branch ausgeführt werden
+branches:
+  except:
+  - gh-pages
+
+script:
+- npm run lint # erstmal checken ob alles schön ist
+- npm run build # angular app bauen
+
+# und nach dem bauen ins github-repo pushen
+deploy:
+  provider: pages # speziell für github pages
+  skip_cleanup: true # der branch soll vorher nicht gelöscht werden
+  github_token: $GITHUB_TOKEN # das token damit der travis das darf,
+  # soll nicht in den logs stehen, daher variable
+  on:
+    branch: master # auch wenn alle branches gebaut werden, deployed werden soll
+    # nur vom master
+  local_dir: dist/angular-tour-of-heroes # in den branch soll dann nur die
+  # erzeugte angular app
+
